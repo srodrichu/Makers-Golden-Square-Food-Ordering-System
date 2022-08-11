@@ -57,7 +57,7 @@ RSpec.describe 'integration tests' do
         expect(result).to eq [dish2]
     end
 
-    it 'adds dishes to the menu and returns them' do
+    it 'adds dishes to the menu and returns them as a string' do
 
         dish1 = Dish.new('yhyh', 12)
         dish2 = Dish.new('nono', 12)
