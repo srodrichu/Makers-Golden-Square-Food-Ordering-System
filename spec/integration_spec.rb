@@ -43,4 +43,31 @@ RSpec.describe 'integration tests' do
 
         expect(result).to eq "yum : 12\nyuck : 1\nTotal : 13\nText Sent: true"
     end
+
+    it 'removes a dish from the order' do
+
+        dish1 = Dish.new('yhyh', 12)
+        dish2 = Dish.new('nono', 12)
+        order = Order.new
+        order.add_dish(dish1)
+        order.add_dish(dish2)
+        order.remove_dish(dish1)
+        result = order.view_order
+
+        expect(result).to eq [dish2]
+    end
+
+    it 'adds dishes to the menu and returns them' do
+
+        dish1 = Dish.new('yhyh', 12)
+        dish2 = Dish.new('nono', 12)
+        menu = Menu.new
+
+        menu.add(dish1)
+        menu.add(dish2)
+
+        result = menu.view
+
+        expect(result).to eq ["yhyh: 12", "nono: 12"]
+    end
 end
