@@ -9,7 +9,7 @@ class Menu
     end
 
     def view
-        @menu
+        @menu.map{|v| "#{v.name}: #{v.price}"}
     end
 
 end
